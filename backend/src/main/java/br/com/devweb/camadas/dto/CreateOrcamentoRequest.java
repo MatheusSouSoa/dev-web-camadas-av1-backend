@@ -10,4 +10,5 @@ public class CreateOrcamentoRequest {
   public String descricao;
   public Double valor;
   public String status;
+  public Long codigo_projeto;
 }

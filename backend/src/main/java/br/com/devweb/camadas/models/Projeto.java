@@ -10,6 +10,7 @@ public class Projeto {
   private String data_inicio;
   private String data_termino;
   private String status;
+  private Long codigo_orcamento;
 
   public Projeto(long id, String nome, String descricao, String dataInicio, String dataFim, String statusProjeto) {
     this.codigo = id;

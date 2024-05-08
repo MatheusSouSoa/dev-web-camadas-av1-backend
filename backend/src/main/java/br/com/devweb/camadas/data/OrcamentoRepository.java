@@ -13,6 +13,8 @@ import lombok.Data;
 @Data
 @Repository
 public class OrcamentoRepository implements OrcamentoRepositoryInterface {
+  
+  private Integer codigo = 1;
   private List<Orcamento> orcamentos = new ArrayList<>();
 
   public void adicionarOrcamento(Orcamento orcamento) {

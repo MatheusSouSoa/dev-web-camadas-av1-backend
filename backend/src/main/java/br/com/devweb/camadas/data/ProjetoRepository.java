@@ -50,4 +50,17 @@ public class ProjetoRepository implements ProjetoRepositoryInterface{
     return false; 
   }
 
+  public boolean adicionarOrcamento(Long codigo_projeto, Long codigo_orcamento) {
+
+    System.out.println(codigo_projeto + " " +codigo_orcamento);
+    Optional<Projeto> projetoOptional = buscarProjetoPorCodigo(codigo_projeto);
+    if (projetoOptional.isPresent()) {
+      Projeto projetoExistente = projetoOptional.get();
+      projetoExistente.setCodigo_orcamento(codigo_orcamento);
+
+      System.out.println(projetoExistente);
+      return true;
+    }
+    return false; 
+  }
 }

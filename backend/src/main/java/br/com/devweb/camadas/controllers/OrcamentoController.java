@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.devweb.camadas.dto.CreateOrcamentoRequest;
 import br.com.devweb.camadas.enums.StatusPagamento;
 import br.com.devweb.camadas.interfaces.OrcamentoRepositoryInterface;
+import br.com.devweb.camadas.interfaces.ProjetoRepositoryInterface;
 import br.com.devweb.camadas.models.Orcamento;
 
 @RestController
@@ -29,10 +30,15 @@ public class OrcamentoController {
   @Autowired
   private OrcamentoRepositoryInterface orcamentoRepository;
 
+  @Autowired
+  private ProjetoRepositoryInterface projetoRepositoryInterface;
+
   @PostMapping
   public ResponseEntity<String> adicionarOrcamento(@RequestBody CreateOrcamentoRequest orcamento) {
     Orcamento budget = new Orcamento(orcamentoRepository.getId() + 1, orcamento.getNome_empresa(), orcamento.getDescricao(), orcamento.getValor(), orcamento.getStatus());
     orcamentoRepository.adicionarOrcamento(budget);
+    projetoRepositoryInterface.adicionarOrcamento(budget.getCodigo(), orcamento.getCodigo_projeto());
+
     return ResponseEntity.status(HttpStatus.CREATED).body("Orcamento adicionado com sucesso");
   }
 
