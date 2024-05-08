@@ -21,6 +21,13 @@ public class OrcamentoRepository implements OrcamentoRepositoryInterface {
     orcamentos.add(orcamento);
   }
 
+  public void incCodigo() {
+    this.codigo++;
+  }
+
+  public Integer genCodigo() {
+    return codigo;
+  }
   public void removerOrcamento(Orcamento orcamento) {
     orcamentos.remove(orcamento);
   }

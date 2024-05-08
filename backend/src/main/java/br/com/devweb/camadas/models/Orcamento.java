@@ -15,4 +15,12 @@ public class Orcamento {
   private Double valor;
   private String status_pagamento;
 
+  public Orcamento(long id, String nome_empresa, String descricao, Double valor, String statusPagamento) {
+    this.codigo = id;
+    this.nome_empresa = nome_empresa;
+    this.descricao = descricao;
+    this.valor = valor;
+    this.status_pagamento = statusPagamento;
+  }
+
 }
