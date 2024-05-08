@@ -48,8 +48,9 @@ public class OrcamentoController {
   public ResponseEntity<String> removerOrcamento(@PathVariable Long codigo) {
     Optional<Orcamento> orcamento = orcamentoRepository.buscarOrcamentoPorCodigo(codigo);
     Optional<Projeto> projetoOptional = projetoRepositoryInterface.buscarProjetoPorCodigoOrcamento(orcamento.get().getCodigo());
-    if (orcamento.isPresent() && projetoOptional.isPresent()) {
-      projetoOptional.get().setCodigo_orcamento(null);
+    if (orcamento.isPresent()) {
+      if(projetoOptional.isPresent())
+        projetoOptional.get().setCodigo_orcamento(null);
       orcamentoRepository.removerOrcamento(orcamento.get());
       return ResponseEntity.ok("Orcamento removido com sucesso");
     } else {
