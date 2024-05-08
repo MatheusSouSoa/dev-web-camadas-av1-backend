@@ -12,4 +12,6 @@ public interface ProjetoRepositoryInterface {
   long getId();
   Optional<Projeto> buscarProjetoPorCodigo(Long codigo);
   boolean editarProjeto(Long codigo, Projeto projetoAtualizado);
+  void incCodigo();
+  Integer genCodigo();
 }

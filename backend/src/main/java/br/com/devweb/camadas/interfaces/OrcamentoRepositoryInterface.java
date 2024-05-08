@@ -12,4 +12,6 @@ public interface OrcamentoRepositoryInterface {
   long getId();
   Optional<Orcamento> buscarOrcamentoPorCodigo(Long codigo);
   boolean editarOrcamento(Long codigo, Orcamento orcamentoAtualizado);
+  void incCodigo();
+  Integer genCodigo();
 }

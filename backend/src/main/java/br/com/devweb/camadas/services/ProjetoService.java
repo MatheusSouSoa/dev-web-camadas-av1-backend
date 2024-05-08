@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import br.com.devweb.camadas.dto.CreateProjetoRequest;
 import br.com.devweb.camadas.enums.StatusProjeto;
+import br.com.devweb.camadas.interfaces.OrcamentoRepositoryInterface;
 import br.com.devweb.camadas.interfaces.ProjetoRepositoryInterface;
 import br.com.devweb.camadas.interfaces.ProjetoServiceInterface;
+import br.com.devweb.camadas.models.Orcamento;
 import br.com.devweb.camadas.models.Projeto;
 import br.com.devweb.camadas.validator.ProjetoValidator;
 
@@ -23,14 +25,28 @@ public class ProjetoService implements ProjetoServiceInterface{
   @Autowired
   private ProjetoRepositoryInterface projetoRepository;
 
+  @Autowired
+  private OrcamentoRepositoryInterface orcamentoRepositoryInterface;
+
 
   public ResponseEntity<String> adicionarProjeto(@RequestBody CreateProjetoRequest projeto) {
 
     if(!ProjetoValidator.isValid(projeto.nome, projeto.descricao, projeto.status)) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Nome, status e descrição são obrigatórios");
     }
-    Projeto proj = new Projeto(projetoRepository.getId() + 1, projeto.getNome(), projeto.getDescricao(), projeto.getData_inicio(), projeto.getData_termino(), projeto.status);
+
+    Projeto proj = new Projeto(projetoRepository.genCodigo() , projeto.getNome(), projeto.getDescricao(), projeto.getData_inicio(), projeto.getData_termino(), projeto.getStatus(), projeto.getOrcamento());
+
+    if (proj.getOrcamento() != null) {
+      Orcamento budget = new Orcamento(orcamentoRepositoryInterface.genCodigo(), proj.getOrcamento().getNome_empresa(), proj.getOrcamento().getDescricao(), proj.getOrcamento().getValor(), proj.getOrcamento().getStatus_pagamento());
+      
+      proj.setOrcamento(budget);
+      orcamentoRepositoryInterface.adicionarOrcamento(budget);
+      orcamentoRepositoryInterface.incCodigo();
+    }
+
     projetoRepository.adicionarProjeto(proj);
+    projetoRepository.incCodigo();
     return ResponseEntity.status(HttpStatus.CREATED).body("Projeto adicionado com sucesso");
   }
   
@@ -80,6 +96,14 @@ public class ProjetoService implements ProjetoServiceInterface{
       }
       if (novoProjeto.getStatus() != null) {
         projetoExistente.setStatus(novoProjeto.getStatus());
+      }
+      if (novoProjeto.getOrcamento() != null) {
+        Orcamento budget = new Orcamento(orcamentoRepositoryInterface.genCodigo(), novoProjeto.getOrcamento().getNome_empresa(), novoProjeto.getOrcamento().getDescricao(), novoProjeto.getOrcamento().getValor(), novoProjeto.getOrcamento().getStatus_pagamento());
+        
+        projetoExistente.setOrcamento(budget);
+        orcamentoRepositoryInterface.adicionarOrcamento(budget);
+        orcamentoRepositoryInterface.incCodigo();
+        // orcamentoRepositoryInterface.adicionarOrcamento(novoProjeto.getOrcamento());
       }
       projetoRepository.editarProjeto(codigo, projetoExistente);
       return ResponseEntity.ok("Projeto editado com sucesso");

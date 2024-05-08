@@ -13,6 +13,8 @@ import lombok.Data;
 @Data
 @Repository
 public class OrcamentoRepository implements OrcamentoRepositoryInterface {
+  
+  private Integer codigo = 1;
   private List<Orcamento> orcamentos = new ArrayList<>();
 
   public void adicionarOrcamento(Orcamento orcamento) {
@@ -23,12 +25,20 @@ public class OrcamentoRepository implements OrcamentoRepositoryInterface {
     orcamentos.remove(orcamento);
   }
 
+  public void incCodigo() {
+    this.codigo++;
+  }
+
+  public Integer genCodigo() {
+    return codigo;
+  }
+
   public List<Orcamento> listarOrcamentos() {
     return orcamentos;
   }
 
   public long getId() {
-    return orcamentos.size();
+    return codigo;
   }
   public Optional<Orcamento> buscarOrcamentoPorCodigo(Long codigo) {
     return orcamentos.stream()

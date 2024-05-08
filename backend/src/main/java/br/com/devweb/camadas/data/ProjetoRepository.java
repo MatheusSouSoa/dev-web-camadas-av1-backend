@@ -14,6 +14,7 @@ import lombok.Data;
 @Repository
 public class ProjetoRepository implements ProjetoRepositoryInterface{
   
+  private Integer codigo = 1;
   private List<Projeto> projetos = new ArrayList<>();
 
   public void adicionarProjeto(Projeto projeto) {
@@ -22,6 +23,14 @@ public class ProjetoRepository implements ProjetoRepositoryInterface{
 
   public void removerProjeto(Projeto projeto) {
     projetos.remove(projeto);
+  }
+
+  public void incCodigo() {
+    this.codigo++;
+  }
+
+  public Integer genCodigo() {
+    return codigo;
   }
 
   public List<Projeto> listarProjetos() {
