@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import br.com.devweb.camadas.dto.CreateProjetoRequest;
 import br.com.devweb.camadas.enums.StatusProjeto;
-import br.com.devweb.camadas.interfaces.OrcamentoRepositoryInterface;
 import br.com.devweb.camadas.interfaces.ProjetoRepositoryInterface;
 import br.com.devweb.camadas.interfaces.ProjetoServiceInterface;
 import br.com.devweb.camadas.models.Projeto;
@@ -34,7 +33,7 @@ public class ProjetoService implements ProjetoServiceInterface{
     Projeto proj = new Projeto(projetoRepository.genCodigo(), projeto.getNome(), projeto.getDescricao(), projeto.getData_inicio(), projeto.getData_termino(), projeto.status);
     projetoRepository.adicionarProjeto(proj);
     projetoRepository.incCodigo();
-    
+
     return ResponseEntity.status(HttpStatus.CREATED).body("Projeto adicionado com sucesso");
   }
   

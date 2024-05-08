@@ -21,6 +21,7 @@ import br.com.devweb.camadas.enums.StatusPagamento;
 import br.com.devweb.camadas.interfaces.OrcamentoRepositoryInterface;
 import br.com.devweb.camadas.interfaces.ProjetoRepositoryInterface;
 import br.com.devweb.camadas.models.Orcamento;
+import br.com.devweb.camadas.models.Projeto;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -46,7 +47,9 @@ public class OrcamentoController {
   @DeleteMapping("/{codigo}")
   public ResponseEntity<String> removerOrcamento(@PathVariable Long codigo) {
     Optional<Orcamento> orcamento = orcamentoRepository.buscarOrcamentoPorCodigo(codigo);
-    if (orcamento.isPresent()) {
+    Optional<Projeto> projetoOptional = projetoRepositoryInterface.buscarProjetoPorCodigoOrcamento(orcamento.get().getCodigo());
+    if (orcamento.isPresent() && projetoOptional.isPresent()) {
+      projetoOptional.get().setCodigo_orcamento(null);
       orcamentoRepository.removerOrcamento(orcamento.get());
       return ResponseEntity.ok("Orcamento removido com sucesso");
     } else {

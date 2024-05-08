@@ -45,6 +45,12 @@ public class ProjetoRepository implements ProjetoRepositoryInterface{
                   .findFirst();
   }
 
+  public Optional<Projeto> buscarProjetoPorCodigoOrcamento(Long codigo) {
+    return projetos.stream()
+                  .filter(projeto -> projeto.getCodigo_orcamento() == codigo)
+                  .findFirst();
+  }
+
   public boolean editarProjeto(Long codigo, Projeto projetoAtualizado) {
     Optional<Projeto> projetoOptional = buscarProjetoPorCodigo(codigo);
     if (projetoOptional.isPresent()) {

@@ -11,6 +11,7 @@ public interface ProjetoRepositoryInterface {
   List<Projeto> listarProjetos();
   long getId();
   Optional<Projeto> buscarProjetoPorCodigo(Long codigo);
+  Optional<Projeto> buscarProjetoPorCodigoOrcamento(Long codigo);
   boolean editarProjeto(Long codigo, Projeto projetoAtualizado);
   boolean adicionarOrcamento(Long codigo_projeto, Long codigo_orcamento);
   Integer genCodigo();
