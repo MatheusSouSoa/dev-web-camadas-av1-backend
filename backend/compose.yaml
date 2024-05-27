@@ -1,0 +1,7 @@
+version: '3'
+services:
+  springboot:
+    image: springboot3
+    build: .
+    ports:
+      - "8080:8080"
