@@ -1,5 +1,29 @@
 
+
+java:S2629-"7Use the built-in formatting to construct this argument.(ìÂëÿÿÿÿÿ8Ôë¹öÿ1J$2b46c9bd-ab34-4d80-b69e-392a6f0f4431
+z
+java:S2629."7Use the built-in formatting to construct this argument.(ŸÚ‹¬8Ôë¹öÿ1J$4672dbeb-bbde-4bdf-ac41-979c22719e25
+
+java:S2629/"7Use the built-in formatting to construct this argument.(¤¼ÌÜùÿÿÿÿ8Ôë¹öÿ1J$b807094c-f661-400d-a939-84c76ecdf62c
+
+java:S26290"7Use the built-in formatting to construct this argument.(¢ÅĞ·ùÿÿÿÿ8Ôë¹öÿ1J$b658c593-9375-4994-bd91-a79935832e95
+•
+java:S22597"MA "NullPointerException" could be thrown; "getContentType()" can return null.(ËÏ®úÿÿÿÿ8çÌöÿ1J$f989fc27-c0e2-41c0-8586-4bcab33af838
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8”…Éòÿ1J$135a2164-3e0c-4a7a-8259-ab233eebf396
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8î€ºöÿ1J$abeb6232-a0ae-467a-9806-3403b6015480
 n
-java:S1452"&Remove usage of generic wildcard type.(–ğıÿÿÿÿ8¡ëËòÿ1J$0f794e59-daa8-478a-b08b-3099baeed232
+java:S1452"&Remove usage of generic wildcard type.(–ğıÿÿÿÿ8ò€ºöÿ1J$e05ad107-4cd8-47a5-a76f-e18e63e034ee
+‰
+java:S3457-"AFormat specifiers should be used instead of string concatenation.(ìÂëÿÿÿÿÿ8õ€ºöÿ1J$4fae25f6-5c05-4071-92d5-6ba4105a51a1
+„
+java:S3457."AFormat specifiers should be used instead of string concatenation.(ŸÚ‹¬8õ€ºöÿ1J$a7322a50-2ad1-416e-b241-16a3cc51a765
+‰
+java:S3457/"AFormat specifiers should be used instead of string concatenation.(¤¼ÌÜùÿÿÿÿ8õ€ºöÿ1J$2548b634-9e24-4d24-8c27-0152625e7f79
+‰
+java:S34570"AFormat specifiers should be used instead of string concatenation.(¢ÅĞ·ùÿÿÿÿ8õ€ºöÿ1J$b0d88cd1-0c33-4f4f-afe1-2457a68218e9
+„
+java:S34574"AFormat specifiers should be used instead of string concatenation.(÷Â·è8àõÊöÿ1J$e16a379f-1e62-43ae-a68f-ef49ab6d636d
+‰
+java:S34575"AFormat specifiers should be used instead of string concatenation.(œ©ÎÀúÿÿÿÿ8ö€ºöÿ1J$99e404ba-1af2-4099-88a6-24b16f554f06
+ƒ
+java:S3457A"AFormat specifiers should be used instead of string concatenation.(ßØä8áõÊöÿ1J$f38aba4f-9af6-46fc-bb08-d10ba055488a

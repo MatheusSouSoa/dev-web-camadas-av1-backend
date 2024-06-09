@@ -33,17 +33,18 @@ public class LoadBalancerController {
         }
     }
 
-    @PutMapping("/**")
+    @PutMapping(value = "/**", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> forwardPutRequest(HttpServletRequest request, @RequestBody String requestBody) {
         String path = request.getRequestURI().substring("/loadbalancer".length());
         String authToken = request.getHeader("Authorization");
-        return loadBalancerService.forwardRequest(path, HttpMethod.POST, requestBody, authToken);
+        return loadBalancerService.forwardRequest(path, HttpMethod.PUT, requestBody, authToken);
     }
 
     @DeleteMapping("/**")
-    public ResponseEntity<?> forwardDeleteRequest(HttpServletRequest request, @RequestBody String requestBody) {
+    public ResponseEntity<?> forwardDeleteRequest(HttpServletRequest request) {
         String path = request.getRequestURI().substring("/loadbalancer".length());
         String authToken = request.getHeader("Authorization");
-        return loadBalancerService.forwardRequest(path, HttpMethod.POST, requestBody, authToken);
+        System.out.println("Headers: " + authToken);
+        return loadBalancerService.forwardRequest(path, HttpMethod.DELETE, null, authToken);
     }
 }

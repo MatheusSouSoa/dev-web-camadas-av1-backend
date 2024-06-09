@@ -67,6 +67,8 @@ public class ProjetoService implements ProjetoServiceInterface{
     if (!ProjetoValidator.isValid(novoProjeto.getNome(), novoProjeto.getDescricao(), novoProjeto.getStatus())) 
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Nome, status e descrição são obrigatórios");
 
+    System.out.println(novoProjeto);
+
     if (projetoOptional.isPresent()) {
       Projeto projetoExistente = projetoOptional.get();
       if (novoProjeto.getNome() != null) {

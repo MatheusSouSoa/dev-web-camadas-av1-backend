@@ -1,17 +1,16 @@
 
 –
-java:S1192"NDefine a constant instead of duplicating this literal "Authorization" 4 times.(’„ÀÛûÿÿÿÿ8„òÿ1J$26adf582-72b6-44ea-9f5b-c43124cf5400
+java:S1192"NDefine a constant instead of duplicating this literal "Authorization" 4 times.(’„ÀÛûÿÿÿÿ8úê¦öÿ1J$0c7a3c53-1536-4e73-92bc-8f70a57a1ee8
 –
-java:S1192"NDefine a constant instead of duplicating this literal "/loadbalancer" 4 times.(®¢¼õúÿÿÿÿ8„òÿ1J$791a95de-e527-4236-a9f5-f3c6cf91500a
+java:S1192"NDefine a constant instead of duplicating this literal "/loadbalancer" 4 times.(®¢¼õúÿÿÿÿ8ûê¦öÿ1J$c09a5c83-4fc3-4efa-98a9-b1edaa4a8deb
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8›¥òÿ1J$b08d4031-f8dd-4163-b22c-c16dede8b938
-©
-java:S4144,"aUpdate this method so that its implementation is not identical to "forwardPutRequest" on line 37.(ƒ•Âûûÿÿÿÿ8œ¥òÿ1J$bf955dd8-e5f5-4a0f-972a-6582dece66cc
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ûê¦öÿ1J$f546e774-76eb-48bd-b8ad-1a4b3eb27bde
 n
-java:S1452"&Remove usage of generic wildcard type.(ÿä±†úÿÿÿÿ8´ÃÏòÿ1J$82e2380a-3e6f-4d9d-abe7-b4c0168cb599
+java:S1452"&Remove usage of generic wildcard type.(ÿä±†úÿÿÿÿ8ıê¦öÿ1J$f4b4df9a-6fa7-4ead-a94b-50048f841aa0
 n
-java:S1452"&Remove usage of generic wildcard type.(ĞøÃÚúÿÿÿÿ8¾Ğòÿ1J$dbf32e75-4f4a-4df0-8614-2055b53622a0
+java:S1452"&Remove usage of generic wildcard type.(ĞøÃÚúÿÿÿÿ8şê¦öÿ1J$bd3f9d26-437d-49fb-a7fa-63530b9cb931
 i
-java:S1452%"&Remove usage of generic wildcard type.(‚ó ¶8ÀĞòÿ1J$d74f7400-a75f-4b30-aa50-37ebad01e53c
-n
-java:S1452,"&Remove usage of generic wildcard type.(ƒ•Âûûÿÿÿÿ8òŸĞòÿ1J$056afbab-f4a1-40fb-b3e6-997f89f9ae34
+java:S1452%"&Remove usage of generic wildcard type.(‚ó ¶8şê¦öÿ1J$91d695de-08f3-45e8-8f6c-e7d0f8641b52
+i
+java:S1452,"&Remove usage of generic wildcard type.(Ë´‘8ÿê¦öÿ1J$1826b52d-ed54-48d9-8683-c489026cb6ed
+r	java:S106/"+Replace this use of System.out by a logger.(Ïš©‡üÿÿÿÿ8€ë¦öÿ1J$a89ad716-22c0-4733-869f-719ac2f01318

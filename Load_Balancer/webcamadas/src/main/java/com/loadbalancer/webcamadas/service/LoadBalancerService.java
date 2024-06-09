@@ -1,9 +1,14 @@
 package com.loadbalancer.webcamadas.service;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.loadbalancer.webcamadas.model.ServiceInstance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -17,6 +22,7 @@ public class LoadBalancerService {
     private RegistryService registryService;
 
     private final AtomicInteger currentIndex = new AtomicInteger(0);
+    private static final Logger logger = LoggerFactory.getLogger(LoadBalancerService.class);
 
     public ResponseEntity<?> forwardRequest(String path, HttpMethod method, Object requestBody, String accessToken) {
         List<ServiceInstance> services = registryService.getAllServices();
@@ -36,6 +42,31 @@ public class LoadBalancerService {
 
         HttpEntity<Object> requestEntity = new HttpEntity<>(requestBody, headers);
 
-        return restTemplate.exchange(url, method, requestEntity, String.class);
+        logger.info("Forwarding request to URL: " + url);
+        logger.info("Method: " + method);
+        logger.info("Request Body: " + requestBody);
+        logger.info("Headers: " + headers);
+
+        try {
+            ResponseEntity<String> response = restTemplate.exchange(url, method, requestEntity, String.class);
+            logger.info("Response Status: " + response.getStatusCode());
+            logger.info("Response Body: " + response.getBody());
+
+            if (response.getHeaders().getContentType().includes(MediaType.APPLICATION_JSON)) {
+                ObjectMapper mapper = new ObjectMapper();
+                JsonNode jsonResponse = mapper.readTree(response.getBody());
+
+                return ResponseEntity.status(response.getStatusCode()).body(jsonResponse);
+            } else {
+                logger.error("Response is not in JSON format");
+                return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
+            }
+        } catch (HttpStatusCodeException e) {
+            logger.error("Error during request forwarding: " + e.getMessage());
+            return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
+        } catch (Exception e) {
+            logger.error("Unexpected error during request forwarding: ", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
     }
 }
