@@ -44,7 +44,7 @@ public class AuthService  {
 
     public ResponseEntity<?> registerUser(RegisterUserRequestDTO body) {
 
-        User user = _userService.getUserByEmail(body.email().toLowerCase());
+        System.out.println(body);
 
         if(_userService.getUserByEmail(body.email()) != null){
             return ResponseEntity.status(HttpStatus.ALREADY_REPORTED).body("user ja cadastrado");

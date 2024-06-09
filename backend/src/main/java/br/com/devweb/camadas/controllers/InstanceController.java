@@ -16,6 +16,6 @@ public class InstanceController {
 
     @GetMapping("/say")
     public String getMethodName() {
-        return "HII I am from Payment MS " + serverPort;
+        return "HII I am the instance " + serverPort;
     }
 }

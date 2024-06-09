@@ -1,0 +1,21 @@
+
+–
+java:S1192"NDefine a constant instead of duplicating this literal "Authorization" 4 times.(’„ÀÛûÿÿÿÿ8„òÿ1J$e614164c-1657-4c40-a40e-068aee3462f5
+–
+java:S1192"NDefine a constant instead of duplicating this literal "/loadbalancer" 4 times.(®¢¼õúÿÿÿÿ8„òÿ1J$530de6ce-d581-4dfa-a766-8d45de4fd116
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8›¥òÿ1J$d36984ee-a743-463a-9e52-3126f84fa8f5
+©
+java:S41440"aUpdate this method so that its implementation is not identical to "forwardPutRequest" on line 41.(ƒ•Âûûÿÿÿÿ8œ¥òÿ1J$e2a5404f-cd18-48a7-85e9-75b70ac1874c
+n
+java:S1452"&Remove usage of generic wildcard type.(ÿä±†úÿÿÿÿ8´ÃÏòÿ1J$e3adf68a-5eaa-409f-bf3b-d00171b43a93
+n
+java:S1452"&Remove usage of generic wildcard type.(ĞøÃÚúÿÿÿÿ8¾Ğòÿ1J$059fa96a-a0c4-422a-a8df-13ba84154cb7
+r	java:S106"+Replace this use of System.out by a logger.(÷œèàşÿÿÿÿ8Ÿ¥òÿ1J$d0cf24ff-a380-4520-b47f-f0aa049d5126
+m	java:S106"+Replace this use of System.out by a logger.(ş¥³ä8Ÿ¥òÿ1J$6c066e83-c7db-4de0-bfac-8b1892d1ebb3
+m	java:S106"+Replace this use of System.out by a logger.(ÍÎÉ 8 ¥òÿ1J$08462a60-f371-4ca3-8974-f1056339f86a
+m	java:S106#"+Replace this use of System.out by a logger.(­ˆ¸î8Ÿ¥òÿ1J$e5a19199-81ce-4c5a-b1fe-ec6a37666aca
+i
+java:S1452)"&Remove usage of generic wildcard type.(‚ó ¶8ÀĞòÿ1J$105de55c-672f-488e-8939-15d9f0a03331
+H
+java:S14520"&Remove usage of generic wildcard type.(ƒ•Âûûÿÿÿÿ8òŸĞòÿ1

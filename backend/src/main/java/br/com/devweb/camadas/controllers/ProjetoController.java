@@ -12,7 +12,7 @@ import br.com.devweb.camadas.models.Projeto;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("api-v1-0/projetos")
+@RequestMapping("api/projetos")
 public class ProjetoController {
 
   @Autowired
