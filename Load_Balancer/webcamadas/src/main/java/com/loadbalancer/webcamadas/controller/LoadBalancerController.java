@@ -24,15 +24,11 @@ public class LoadBalancerController {
 
     @PostMapping(value = "/**", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> forwardPostRequest(HttpServletRequest request, @RequestBody String requestBody) {
-        System.out.println(requestBody);
         String path = request.getRequestURI().substring("/loadbalancer".length());
-        System.out.println(request.getRequestURI());
         if(path.equals("/api/auth/register") || path.equals("/api/auth/login")) {
-            System.out.println(path);
             return loadBalancerService.forwardRequest(path, HttpMethod.POST, requestBody, "");
         } else {
             String authToken = request.getHeader("Authorization");
-            System.out.println(authToken.split(" ")[1]);
             return loadBalancerService.forwardRequest(path, HttpMethod.POST, requestBody, authToken);
         }
     }
